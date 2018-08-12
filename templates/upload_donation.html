@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>uplode a new donation</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <h1>uplode a new donation</h1>
+		<form method="post">
+			<input type="text" name="danoation_name" placeholder="dishes' name">
+			<br>
+			Amount of dishes:
+  			<input type="number" name="quantity" min="1">
+  			<br>
+  			expiration date:
+			<input type="date" name="expiration_date">
+			<input type="submit" name="submit">
+		</form>
+    </body>
+</html>
