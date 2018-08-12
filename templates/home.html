@@ -3,12 +3,21 @@
     <head>
         <title>Food Secure</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <button type="button", name = "home">Home</button>
+        <input type="text" name="username" placeholder="username">
+        <input type="text" name="password" placeholder="password">
     </head>
     <body>
-        <h1>Using all the food we made</h1>\
+        <h1>Using all the food we made</h1>
         <br>
         <button type = "button", name = "donor">Sign up as a food donor</button>
         <button type = "button", name = "reciever">Sign up as a food reciever</button>
-        <img src = "https://archive.sltrib.com/images/2017/0410/feedthehomeless_041017~7.jpg">
+        <br>
+        <img src = "{{ url_for('static', filename='homepageimg.jpg'}}">
+        <h2>Some Facts About Food Security:</h2>
+        <li>
+        	1 <br>
+        	2 <br>
+        3 </li>
     </body>
 </html>
