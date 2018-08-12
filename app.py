@@ -12,6 +12,14 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/signup_donor')
+def donor():
+	return render_template('signup_donor.html')
+
+@app.route('/signup_reciever')
+def reciever():
+	return render_template('signup_reciever.html')
+
 # Running the Flask app
 if __name__ == "__main__":
     app.run(debug=True)

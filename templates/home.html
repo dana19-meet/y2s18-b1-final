@@ -10,10 +10,12 @@
     <body>
         <h1>Using all the food we made</h1>
         <br>
-        <button type = "button", name = "donor">Sign up as a food donor</button>
-        <button type = "button", name = "reciever">Sign up as a food reciever</button>
+        <a href = "http://127.0.0.1:5000/signup_donor", class = "button", id = "donor">Sign up as a food donor</a>
+        <a href="http://127.0.0.1:5000/signup_reciever", class = "button", id = "reciever">Sign up as a food reciever</a>
         <br>
-        <img src = "{{ url_for('static', filename='homepageimg.jpg'}}">
+        <br>
+        <img src = "{{ url_for('static', filename='homepageimg.jpg')}}" width="200px" height="150px">
+        <!-- change the dimensions of the image and put the buttons on top of it -->
         <h2>Some Facts About Food Security:</h2>
         <li>
         	1 <br>
