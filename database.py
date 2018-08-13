@@ -55,3 +55,12 @@ def query_by_id(donation_id):
     donation = session.query(Donation).filter_by(
         donation_id=donation_id).first()
     return donation
+
+def query_donors_by_email(email):
+	donor = session.query(Donor).filter_by(email=email).first()
+	return donor
+
+def query_recievers_by_email(email):
+	reciever = session.query(Reciever).filter_by(email=email).first()
+	return reciever
+

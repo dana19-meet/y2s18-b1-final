@@ -5,9 +5,9 @@
 
 }
 .main_bar {
-    background-color: yellow;
+    background-color: lightpink;
 } 
-/* Put your styles BELOW this line */
-.m{
-	border-radius: 50px;
-}
+
+.btn-rounded {
+	border-radius: 1000px;
+} 
