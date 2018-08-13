@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+
+
+        <!-- Required tags to make the website responsive-->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+       <!-- Add Bootstrap CSS to the page -->
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+
+
+
+
         <title>Food Secure</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
     </head>
     <body>
         <div class=main_bar>
-        <button type="button", name = "home", class="main_bar">Home</button>
+        
+        
+        <button class="btn-rounded" type="button", name = "home", class="main_bar">Home</button>
+    
         <br>
-        <input type="text" name="username" placeholder="username", class = "main_bar">
+        <input type="text" name="email" placeholder="email", class = "main_bar">
         <input type="text" name="password" placeholder="password", class="main_bar">
     </div>
         <h1>Using all the food we made</h1>
@@ -24,5 +40,15 @@
         <li>1</li>
         <li>2</li>
         <li>3</li>
+    
+
+
+       <!-- Add JQuery and Bootstrap JS to the page -->
+       <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
+       <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+       <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+
+
+
     </body>
 </html>
