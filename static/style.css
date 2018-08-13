@@ -2,6 +2,12 @@
     /* Removes extra spacing from all elements on the page */
     padding: 0;
     margin: 0;
-}
 
-/* Put your styles BELOW this line */
+}
+.main_bar {
+    background-color: lightpink;
+} 
+
+.btn-rounded {
+	border-radius: 1000px;
+} 
