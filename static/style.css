@@ -1,13 +1,34 @@
 * {
-    /* Removes extra spacing from all elements on the page */
-    padding: 0;
-    margin: 0;
+	/* Removes extra spacing from all elements on the page */
+	padding: 0;
+	margin: 0;
 
 }
-.main_bar {
-    background-color: lightpink;
-} 
+.all_button{
+	background-color:black;
+	border-radius: 70px;
+}
 
-.btn-rounded {
-	border-radius: 1000px;
-} 
+a.btn {
+ 
+    -moz-appearance: button;
+    appearance: button;
+    border-radius: 70px;
+
+}
+
+
+#pic1{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;	
+	z-index: -1;
+	webkit-filter:blur(20px);
+	filter:blur(5px);
+	background-image: url('pic1.jpg');
+	background-size: cover;
+	opacity: 0.5;
+}
+
