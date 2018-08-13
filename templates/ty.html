@@ -2,8 +2,17 @@
 <html>
     <head>
         <title>Food Secure</title>
+        
+<meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+
+
+
+
+
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-        <button type="button", name = "home">Home</button>
+        <button class="m" type="button", name = "home">Home</button>
     </head>
     <body>
         <h1>Using all the food we made</h1>
@@ -11,6 +20,16 @@
         <p>Thank you for your generous donation! We hope relevant organizations near you will contact you soon</p>
         <button type = "button", name = "add_donation">Add another donation</button>
         <button type="button", name = "home">Come back to the homepage</button>
+
+
+
+
+ <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+       <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+
+
+
+
 
     </body>
 </html>
