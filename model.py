@@ -12,12 +12,25 @@ class Donation(Base):
 	name=Column(String)
 	amount=Column(Integer)
 	expiration_date=Column(Date)
-# Example code:
-class Student(Base):
-    __tablename__ = "students"
+
+class Donor(Base):
+	__tablename__="donors"
+	id=Column(Integer,primary_key=True)
+	name=Column(String)
+	email=Column(String)
+	password=Column(String)
+	area=Column(String)
+	address=Column(String)
+	telephone=Column(String)
+
+class Reciever(Base):
+    __tablename__ = "recievers"
     id = Column(Integer, primary_key = True)
-    name = Column(String)
-    year = Column(Integer)
+    reciever_name = Column(String)
+    email = Column(String)
+    password = Column(String)
+    area = Column(String)
+    telephone = Column(String)
 
     def __repr__(self):
         return ("Student name: {}, Student year:{}".format(self.name, self.year))

@@ -2,6 +2,12 @@
     /* Removes extra spacing from all elements on the page */
     padding: 0;
     margin: 0;
-}
 
+}
+.main_bar {
+    background-color: yellow;
+} 
 /* Put your styles BELOW this line */
+.m{
+	border-radius: 50px;
+}

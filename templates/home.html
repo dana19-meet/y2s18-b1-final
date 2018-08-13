@@ -3,12 +3,15 @@
     <head>
         <title>Food Secure</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-        <button type="button", name = "home">Home</button>
-        <br>
-        <input type="text" name="username" placeholder="username">
-        <input type="text" name="password" placeholder="password">
+
     </head>
     <body>
+        <div class=main_bar>
+        <button type="button", name = "home", class="main_bar">Home</button>
+        <br>
+        <input type="text" name="username" placeholder="username", class = "main_bar">
+        <input type="text" name="password" placeholder="password", class="main_bar">
+    </div>
         <h1>Using all the food we made</h1>
         <br>
         <a href = "http://127.0.0.1:5000/signup_donor", class = "button", id = "donor">Sign up as a food donor</a>
