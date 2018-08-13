@@ -12,19 +12,21 @@ app = Flask(__name__)
 # App routing code here
 @app.route('/')
 def home():
-	# donor = query_donors_by_email(request.form['email'])
-	# if donor == None:
-	# # login
-	# 	if donor.password==request.form['password']:
-	# 		login_session['donor_name'] = donor.donor_name
-	# 		login_session['email'] = donor.email
-	# 		return render_template('feed_for_recievers.html')
+	try:
+		donor = query_donors_by_email(request.form['email'])
+		if donor != None and donor.password==request.form['password']:
+			login_session['donor_name'] = donor.donor_name
+			login_session['email'] = donor.email
+			return render_template('feed_for_recievers.html')
+		return render_template('home.html')
+	# login
+	except:
+		return render_template('home.html')
+
 		#logout
 		# del login_session['donor_name']
-		# del login_session['email']
-
-    return render_template('home.html',donates=query_all_donates())
-
+		# del login_session['email']	
+    
 @app.route('/signup_donor', methods=['GET', 'POST'])
 def donor():
 	print(request.method)
