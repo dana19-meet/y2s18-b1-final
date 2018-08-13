@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>donation </title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <h1>Name: {{donation.name}}</h1> <br>
+        amount of dishes: {{donation.amount}}<br>
+	    Expiration Date: {{donation.expiration_date}}<br>
+	    
+    </body>
+</html>

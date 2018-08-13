@@ -52,6 +52,11 @@ def reciever():
 	if request.method=='GET':
 		return render_template('signup_reciever.html')
 
+@app.route('/donation/<int:donation_id>')
+def donation(donation_id):
+	return render_template('donation.html', 
+		donation=query_by_id(donation_id))
+
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
 	if request.method=='POST':

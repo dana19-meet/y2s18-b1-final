@@ -8,7 +8,7 @@ Base = declarative_base()
 # Place your database schema code here
 class Donation(Base):
 	__tablename__="donations"
-	id=Column(Integer,primary_key=True)
+	donation_id=Column(Integer,primary_key=True)
 	name=Column(String)
 	amount=Column(Integer)
 	expiration_date=Column(Date)
