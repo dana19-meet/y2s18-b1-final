@@ -16,15 +16,25 @@ def add_donation(name, amount, expiration_date):
 	session.add(donation_object)
 	session.commit()
 
-def add_donor(name, email, password, area, adress, phone_number):
+def add_donor(name, email, password, area, address, telephone):
 	donor_object = Donor(
 		name=name,
 		email = email,
 		password = password,
 		area = area,
-		adress=adress,
-		phone_number=phone_number)
+		address=address,
+		telephone=telephone)
 	session.add(donor_object)
+	session.commit()
+
+def add_reciever(reciever_name, email, password, area, telephone):
+	reciever_object = Reciever(
+		reciever_name=reciever_name,
+		email = email,
+		password = password,
+		area = area,
+		telephone=telephone)
+	session.add(reciever_object)
 	session.commit()
 
 def delete_donation(donation_id):
@@ -32,9 +42,13 @@ def delete_donation(donation_id):
 		donation_id=donation_id).delete()
 	session.commit()
 
-def query_all():
+def query_all_donates():
 	donations = session.query(Donation).all()
 	return donations
+
+def query_all_donors():
+	donors = session.query(Donor).all()
+	return donors
 
 def query_by_id(donation_id):
     donation = session.query(Donation).filter_by(

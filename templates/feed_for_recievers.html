@@ -6,14 +6,31 @@
     </head>
 
     <body>
-        <h1>food donations</h1>
+        <h1>uplode a new donation</h1>
+        <form method="POST" action="/feed">
+            <input type="text" name="donation_name" placeholder="dishes' name">
+            <br>
+            Amount of dishes:
+            <input type="number" name="amount" min="1">
+            <br>
+            expiration date:
+            <input type="date" name="expiration_date">
+            <br>
+            <br>
+            <input type="submit" name="submit">
+        <h1>feed</h1>
         {% for donate in donates %}
     <p>
-	    Name: {{Donation.name}}</a><br>
-        amount: {{Donation.amount}}</a><br>
-	    Expiration Date: {{Donation.expiration_date}}<br>
+	    Name: {{donate.name}}<br>
+        amount: {{donate.amount}}<br>
+	    Expiration Date: {{donate.expiration_date}}<br>
         <!-- figure out the names of the variables -->
     </p>
     {% endfor %}
+           <!--  {% for donor in donors %}
+    <p>
+        Name: {{donor.name}}<br>
+    </p>
+    {% endfor %} -->
     </body>
 </html>
