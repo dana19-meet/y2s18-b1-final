@@ -20,6 +20,13 @@ def donor():
 def reciever():
 	return render_template('signup_reciever.html')
 
+@app.route('/feed')
+def feed():
+	return render_template('feed_for_recievers.html')
+# @app.route('/donation/<int:student_id>')
+# def display_student(student_id):
+#     return render_template('student.html', student_id=student_id)
+
 # Running the Flask app
 if __name__ == "__main__":
     app.run(debug=True)
