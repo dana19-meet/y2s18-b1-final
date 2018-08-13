@@ -1,7 +1,8 @@
-
-
+from model import *
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
+
+Base=declarative_base()
 
 engine = create_engine('sqlite:///students.db')
 Base.metadata.create_all(engine)
