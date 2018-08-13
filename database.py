@@ -12,7 +12,8 @@ def add_donation(name, amount, expiration_date):
 	donation_object = Donation(
 		name= name,
 		amount=amount,
-		expiration_date=expiration_date)
+		expiration_date=expiration_date,
+		)
 	session.add(donation_object)
 	session.commit()
 
