@@ -1,20 +1,19 @@
 from model import *
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, relationship
-
-Base=declarative_base()
+import datetime
 
 engine = create_engine('sqlite:///students.db')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_donation(name, amount, expiration_date):
+def add_donation(name, amount, expiration_date, donor):
 	donation_object = Donation(
 		name= name,
 		amount=amount,
 		expiration_date=expiration_date,
-		)
+		donor=donor)
 	session.add(donation_object)
 	session.commit()
 
@@ -44,6 +43,7 @@ def delete_donation(donation_id):
 		donation_id=donation_id).delete()
 	session.commit()
 
+
 def query_all_donates():
 	donations = session.query(Donation).all()
 	return donations
@@ -61,7 +61,15 @@ def query_donors_by_email(email):
 	donor = session.query(Donor).filter_by(email=email).first()
 	return donor
 
+def query_donors_by_id(donor_id):
+	donor = session.query(Donor).filter_by(donor_id=donor_id).first()
+	return donor
+
+
 def query_recievers_by_email(email):
 	reciever = session.query(Reciever).filter_by(email=email).first()
 	return reciever
 
+def delete_donations_by_exp(expiration_date):
+    donations = session.query(Donation).filter_by(
+        expiration_date=expiration_date).delete()

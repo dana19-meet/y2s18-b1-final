@@ -1,69 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
+	<head>
 
 
 
-        <!-- Required tags to make the website responsive-->
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Required tags to make the website responsive-->
+	   <meta charset="utf-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
 
-       <!-- Add Bootstrap CSS to the page -->
-       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
-
-
-
-
-        <title>Food Secure</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-
-    </head>
-    <body>
-        <div class=main_bar>
-        
-        
-        <button class="btn btn-primary main_bar all_button" type="button" >Home</button>
-    
-        <br>
-        <input type="text" name="email" placeholder="email" class = "main_bar">
-        <input type="text" name="password" placeholder="password" class="main_bar">
-    </div>
-        <h1>Using all the food we made</h1>
-        <br>
-        <a href = "http://127.0.0.1:5000/signup_donor" class =  "btn btn-info main_bar all_button button" id = "donor">Sign up as a food donor</a>
-        <a href="http://127.0.0.1:5000/signup_reciever" class = "btn btn-danger main_bar all_button button" id = "reciever">Sign up as a food reciever</a>
-        <br>
-        <br>
-        
-        <!-- change the dimensions of the image and put the buttons on top of it -->
-        <h2>Some Facts About Food Security:</h2>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        
-
-
-    <div id="pic1"></div>
+	   <!-- Add Bootstrap CSS to the page -->
+	   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
 
 
 
 
+		<title>Food Secure</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+	</head>
+	<body>
+		<div class=main_bar>
+		
+		
+		<button class="btn btn-primary main_bar all_button" type="button" >Home</button>
+	
+		<br>
+		<form method="post">
+			<input type="text" name="email" placeholder="email" class = "main_bar">
+			<input type="password" name="password" placeholder="password" class="main_bar">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+		<h1>Using all the food we made</h1>
+		<br>
+		<h3>1 out of 10 kids go to sleep hungry</h3>
+		<a href = "{{url_for('donor')}}" class =  "btn btn-info main_bar all_button button" id = "donor">Sign up as a food donor</a>
+		<a href="{{url_for('reciever')}}" class = "btn btn-danger main_bar all_button button" id = "reciever">Sign up as a food reciever</a>
+		<br>
+		<br>
+		<h2>Some Facts About Food Security:</h2>
+		<ol>
+			<li>one</li>
+			<li>two</li>
+		</ol>
+		
+
+
+	<div id="pic1"></div>
+
+	   <!-- Add JQuery and Bootstrap JS to the page -->
+	   <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
+	   <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+	   <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
 
 
 
-
-
-
-       <!-- Add JQuery and Bootstrap JS to the page -->
-       <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
-       <script src="{{ url_for('static', filename='jquery.js') }}"></script>
-       <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
-
-
-
-
-
-    </body>
+	</body>
 </html>

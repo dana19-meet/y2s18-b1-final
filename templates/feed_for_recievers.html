@@ -1,5 +1,6 @@
 
     <body>
+        <h3>Hello {{donor.name}}</h3>
         <h1>uplode a new donation</h1>
         <form method="POST" action="/feed">
             <input type="text" name="donation_name" placeholder="dishes' name">
@@ -9,8 +10,6 @@
             <br>
             expiration date:
             <input type="date" name="expiration_date">
-            <br>
-            <input type="text" name="email" placeholder="email">
             <br>
             <br>
             <input type="submit" name="submit">
