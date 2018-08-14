@@ -14,9 +14,10 @@ a.btn {
 
 
 
-.main_bar{
-	background-image: url("blacksidebar.jpeg");
-    background-repeat: repeat-x;
+#topbar{
+	background-color: rgba(0, 0, 0, 0.5);
+
+
 }
 
 .s_u_d{
@@ -149,3 +150,14 @@ background-image: url('givingback.jpg');
 	opacity: 0.5;
 }
 
+#contentud{
+	background-image: url("donations.jpg");
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+
+}

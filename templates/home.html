@@ -23,15 +23,16 @@
 	<body>
 		<div class=main_bar>
 		
-		
-		<button class="btn btn-primary main_bar all_button" type="button" >Home</button>
-	
+		<div id="topbar">
+		<button class="btn btn-primary main_bar all_button"  type="button" >Home</button>
+	   
 		<br>
 		<form method="post">
 			<input type="text" name="email" placeholder="email" class = "main_bar">
 			<input type="password" name="password" placeholder="password" class="main_bar">
 			<input type="submit" name="submit">
 		</form>
+    </div>
 	</div>
 		<h1>Using all the food we made</h1>
 		<br>
@@ -49,7 +50,7 @@
 
 
 	<div id="pic1"></div>
-
+    <div id="topbar"></div>
 	   <!-- Add JQuery and Bootstrap JS to the page -->
 	   <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
 	   <script src="{{ url_for('static', filename='jquery.js') }}"></script>
