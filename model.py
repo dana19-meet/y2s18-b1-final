@@ -12,8 +12,7 @@ class Donation(Base):
 	donor_id = Column(Integer, ForeignKey('donors.donor_id'))
 	name=Column(String)
 	amount=Column(Integer)
-	expiration_date=Column(Date)
-	email=Column(String)
+	expiration_date=Column(String)
 	donor = relationship("Donor", back_populates = "donation")
 
 class Donor(Base):

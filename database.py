@@ -71,5 +71,16 @@ def query_recievers_by_email(email):
 	return reciever
 
 def delete_donations_by_exp(expiration_date):
-    donations = session.query(Donation).filter_by(
+    session.query(Donation).filter_by(
         expiration_date=expiration_date).delete()
+    session.commit()
+
+def query_donations_by_donorid(donor_id):
+	donations = session.query(Donation).filter_by(donor_id=donor_id).all()
+	return donations
+
+def update_donation(donation_id,expiration_date,amount):
+	donation=session.query(Donation).filter_by(donation_id=donation_id).first()
+	donation.expiration_date=expiration_date
+	donation.amount=amount
+	session.commit()
