@@ -14,10 +14,15 @@ app.secret_key = os.urandom(24)
 def home():
 	if request.method=='POST':
 		donor = query_donors_by_email(request.form['email'])
+		reciever=query_recievers_by_email(request.form['email'])
 		if donor != None and donor.password==request.form['password']:
 			login_session['donor_name'] = donor.name
 			login_session['email'] = donor.email
 			return render_template('feed_for_recievers.html', donates=query_all_donates(), donor = query_donors_by_email(request.form['email']))
+		elif reciever != None and reciever.password==request.form['password']:
+			login_session['reciever_name'] = reciever.reciever_name
+			login_session['email'] = reciever.email
+			return render_template('real_feed_recievers.html', donates=query_all_donates(), reciever = query_recievers_by_email(request.form['email']))
 		return redirect('/')
 
 	elif request.method=='GET':
