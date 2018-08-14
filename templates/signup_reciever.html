@@ -4,34 +4,43 @@
         <title>sign up as a food donor</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     </head>
-
     <body>
-		<h1>sign up as a reciever</h1>
-		<form method="post">
-			<input type="text" name="reciever_name" placeholder="Reciever Name">
+    	<div class='signupbg'>
+    		<div class="surb">
+				<h1>sign up as a reciever</h1>
+			</div>
+			<form method="post">
+			<input class="sur" type="text" name="reciever_name" placeholder="Reciever Name">
 			<br>
-			<input type="email" name="email" placeholder="email">
+			<input class="sur" type="email" name="email" placeholder="email">
 			<br>
-			<input type="password" name="password" placeholder="Password">
-			<br>
-			<br>
-			My Location
-			<br>
-			<select name="area">
-				<option>choose an area</option>
-				<option value="North">North</option>
-				<option value="Haifa">Haifa</option>
-				<option value="Tel_Aviv">Tel Aviv</option>
-				<option value="Jerusalem">Jerusalem</option>
-				<option value="Judea_and_Samaria">Judea and Samaria</option>
-				<option value="South">South</option>
-			</select>
+			<input class="sur" type="password" name="password" placeholder="Password">
 			<br>
 			<br>
-			<input type="text" name="telephone" placeholder="Telephone Number">
+			<div class="surc">
+				My Location
+			</div>
+			<br>
+			<div class='surd'>
+				<select name="area">
+					<option>choose an area</option>
+					<option value="North">North</option>
+					<option value="Haifa">Haifa</option>
+					<option value="Tel_Aviv">Tel Aviv</option>
+					<option value="Jerusalem">Jerusalem</option>
+					<option value="Judea_and_Samaria">Judea and Samaria</option>
+					<option value="South">South</option>
+				</select>
+			</div>
 			<br>
 			<br>
-			<input type="submit" name="submit">
-		</form>
+			
+			<input class="sur" type="text" name="telephone" placeholder="Telephone Number">
+
+			<br>
+			<br>
+			<input id='sura' type="submit" name="submit">
+			</form>
+		</div>
     </body>
 </html>

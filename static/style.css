@@ -42,6 +42,61 @@ a.btn {
 	margin-left: 485px;
 }
 
+
+.signupbg{
+background-image: url('givingback.jpg');
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;	
+	z-index: -1;
+
+
+}
+
+.surb{
+	text-align: center;
+}
+
+.surc{
+	text-align: center;
+	padding: 10px;
+	margin: 5px;
+
+	margin-left: 350px;
+
+    width: 40%;
+
+}
+
+#sura{
+	text-align: center;
+	margin-left: 595px;
+
+}
+
+
+.surd{
+	text-align: center;
+	margin-right: 60px;
+}
+
+.sur{
+	
+
+	text-align: center;
+	padding: 10px;
+	margin: 5px;
+
+	margin-left: 350px;
+
+    width: 40%;
+    border: 3px solid #298de2;
+}
+
+
 .mylocationc{
 	background-color: grey;
 	color: white;
