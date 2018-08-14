@@ -1,9 +1,4 @@
-* {
-	/* Removes extra spacing from all elements on the page */
-	padding: 0;
-	margin: 0;
 
-}
 .all_button{
 	background-color:black;
 	border-radius: 70px;
@@ -14,6 +9,73 @@ a.btn {
     -moz-appearance: button;
     appearance: button;
     border-radius: 70px;
+
+}
+
+
+
+.main_bar{
+	background-image: url("blacksidebar.jpeg");
+    background-repeat: repeat-x;
+}
+
+.s_u_d{
+	text-align: center;
+	padding: 10px;
+	margin: 5px;
+
+	margin-left: 350px;
+
+    width: 40%;
+    border: 3px solid #73AD21;
+
+	
+}
+
+
+.white{
+	background-color: grey;
+	color: white;
+    width: 250px;
+	padding: 10px;
+	text-align: center;
+	margin-left: 485px;
+}
+
+.mylocationc{
+	background-color: grey;
+	color: white;
+    width: 100px;
+	text-align: center;
+	margin-left: 570px;
+
+}
+
+.chooseareap{
+	width: 100px;
+	text-align: center;
+	margin-left: 550px;
+
+
+}
+
+.submitmid{
+	width: 100px;
+	text-align: center;
+	margin-left: 570px;
+
+}
+
+
+#bg_s_u_d{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;	
+	z-index: -1;
+	background-image: url('vegetables.jpg');
+	background-size: cover;
 
 }
 

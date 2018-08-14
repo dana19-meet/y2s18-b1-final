@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>donation </title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+	<head>
+		<title>donation </title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	</head>
 
-    <body>
-        <h1>Name: {{donation.name}}</h1> <br>
-        amount of dishes: {{donation.amount}}<br>
-	    Expiration Date: {{donation.expiration_date}}<br>
-	    Donor's Email: {{donation.donor.email}} <br>
-	    Donor's area: {{donation.donor.area}} <br>
-	    Donor's address: {{donation.donor.address}} <br>
-	    Donor's phone number: {{donation.donor.telephone}} <br>
-<!-- 	    adress: 
- -->    </body>
+	<body>
+		<h1>Name: {{donation.name}}</h1> <br>
+		amount of dishes: {{donation.amount}}<br>
+		Expiration Date: {{donation.expiration_date}}<br>
+		Donor's Email: {{donation.donor.email}} <br>
+		Donor's area: {{donation.donor.area}} <br>
+		Donor's address: {{donation.donor.address}} <br>
+		Donor's phone number: {{donation.donor.telephone}} <br>
+
+	</body>
 </html>

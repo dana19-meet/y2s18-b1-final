@@ -5,18 +5,26 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 	</head>
 
+	
 	<body>
-		<h1>sign up as a donor</h1>
+
+		
+		<h1 class="white">sign up as a donor</h1>
 		<form method="post" action="/signup_donor">
-			<input type="text" name="donor_name" placeholder="Donor Name">
+			
+			
+			<input class="s_u_d" type="text" name="donor_name" placeholder="Donor Name">
 			<br>
-			<input type="email" name="email" placeholder="Email">
+			<input class="s_u_d" type="email" name="email" placeholder="Email">
 			<br>
-			<input type="password" name="password" placeholder="Password">
+			<input class="s_u_d" type="password" name="password" placeholder="Password">
 			<br>
 			<br>
+			<div class="mylocationc">
 			My location
+			</div>
 			<br>
+			<div class="chooseareap">
 			<select name="area">
 				<option>choose an area</option>
 				<option value="North">North</option>
@@ -26,14 +34,20 @@
 				<option value="Judea_and_Samaria">Judea and Samaria</option>
 				<option value="South">South</option>
 			</select>
+			</div>
 			<br>
 			<br>
-			<input type="text" name="address" placeholder="Address">
+			<input class="s_u_d" type="text" name="address" placeholder="Address">
 			<br>
-			<input type="text" name="telephone" placeholder="Telephone Number">
+			<input class="s_u_d" type="text" name="telephone" placeholder="Telephone Number">
 			<br>
 			<br>
+			<div class="submitmid">
 			<input type="submit" name="submit">
+			</div>
+		</div>
+			<div id='bg_s_u_d'></div>
 		</form>
 	</body>
+
 </html>
