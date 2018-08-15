@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> edit donation</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+    	<form method="POST" action="/edit_request/{{request_id}}">
+            <!-- <input type="text" name="donation_name" placeholder="dishes' name"> -->
+            {{name}}
+
+            <br>
+            Amount of dishes:
+            <input type="number" name="amount" min="1">
+            <br>
+            <br>
+            <input type="submit" name="submit">
+        </form>
+    </body>
+</html>

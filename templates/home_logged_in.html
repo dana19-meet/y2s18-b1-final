@@ -3,19 +3,9 @@
 	<head>
 
 
-
-		<!-- Required tags to make the website responsive-->
 	   <meta charset="utf-8">
 	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
-	   <!-- Add Bootstrap CSS to the page -->
 	   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
-
-
-
-
 		<title>Food Secure</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
@@ -28,22 +18,30 @@
             <div class="right">
                 <img src="../static/logo.jpeg" class="logo" alt="logo">
             </div>
-		<button class="btn btn-primary main_bar all_button"  type="button" >Home</button>
-		
-		<br>
+		<a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
+		{%if donor%}
+			<a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+        	<a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
+		{%elif reciever%}
+			<a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+		{%endif%}
+		<a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
+        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
+		<h3>Hello 
+			{%if donor%}
+				{{donor.name}}
+			{%elif reciever%}
+				{{reciever.reciever_name}}
+			{%endif%}
+		</h3>	
+	
 
-		<form method="post">
-			<input type="text" name="email" placeholder="email" class = "main_bar">
-			<input type="password" name="password" placeholder="password" class="main_bar">
-			<input type="submit" name="submit">
-		</form>
     </div>
 	</div>
 		<h1>Using all the food we made</h1>
 		<br>
 		<h3>1 out of 10 kids go to sleep hungry</h3>
-		<a href = "{{url_for('donor')}}" class =  "btn btn-info main_bar all_button button" id = "donor">Sign up as a food donor</a>
-		<a href="{{url_for('reciever')}}" class = "btn btn-danger main_bar all_button button" id = "reciever">Sign up as a food reciever</a>
+		
 		<br>
 		<br>
 		<h2>Some Facts About Food Security:</h2>

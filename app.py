@@ -20,20 +20,29 @@ def home():
 		if donor != None and donor.password==request.form['password']:
 			login_session['donor_name'] = donor.name
 			login_session['email'] = donor.email
-			return redirect(url_for('feed'))
+			return redirect(url_for('home_sign_in'))
 		elif reciever != None and reciever.password==request.form['password']:
 			login_session['reciever_name'] = reciever.reciever_name
 			login_session['email'] = reciever.email
-			return redirect(url_for('recieverfeed'))
+			return redirect(url_for('home_sign_in'))
 		return redirect('/')
 
 	elif request.method=='GET':
 		return render_template('home.html')
+  
 
-		#logout
-		# del login_session['donor_name']
-		# del login_session['email']    
-	
+@app.route('/home_signed_in', methods=['GET','POST'])
+def home_sign_in():
+	if request.method=='GET':
+		donor=query_donors_by_email(login_session['email'])
+		reciever=query_recievers_by_email(login_session['email'])
+		if donor != None:
+			return render_template('home_logged_in.html', donor=donor)
+		if reciever!= None:
+			return render_template('home_logged_in.html', reciever=reciever)
+
+
+
 @app.route('/signup_donor', methods=['GET', 'POST'])
 def donor():
 	if request.method=='POST':
@@ -100,6 +109,29 @@ def feed():
 		mydonations=query_donations_by_donorid(donor.donor_id)
 		return render_template('feed_for_recievers.html', mydonations=mydonations, donor=donor)
 
+@app.route('/my_requests/<int:request_id>', methods=['GET', 'POST'])
+def requests(request_id):
+	if request.method=='POST':  
+		reciever=query_recievers_by_email(login_session['email'])
+		if reciever == None:
+			return redirect(url_for('home'))
+		add_request(request.form['request_name'],
+			int(request.form['amount']), reciever)
+		myrequests=query_requests_by_recieverid(reciever.reciever_id)
+		return render_template('account_reciever.html', myrequests=myrequests, reciever=reciever)
+	if request.method=='GET':
+		frequest = query_request_by_id(request_id)
+		return render_template('request.html', request=frequest, login_session=login_session)
+# we were here a 
+
+@app.route('/account_reciever',methods=['POST','GET'])
+def account_reciever():
+	if request.method=='GET':
+		reciever=query_recievers_by_email(login_session['email'])
+		myrequests=query_requests_by_recieverid(reciever.reciever_id)
+		return render_template('account_reciever.html', reciever=reciever, myrequests=myrequests)
+
+
 @app.route('/reciever_feed', methods=['GET'])
 def recieverfeed():
 	if request.method=='GET':
@@ -118,6 +150,15 @@ def edit_donation(food_id):
 		food_name = query_by_id(food_id).name
 		return render_template('edit.html', name=food_name,donation_id=food_id)
 
+@app.route('/edit_request/<int:request_id>', methods=['GET','POST'])
+def edit_request(request_id):
+	if request.method=='POST':
+		update_request(request_id,int(request.form['amount']))
+		return redirect(url_for('account_reciever'))
+	if request.method=='GET':
+		request_name = query_request_by_id(request_id).name
+		return render_template('edit_request.html', name=request_name,request_id=request_id)
+
 @app.route('/logout')
 def logout():
 	del login_session['email']
@@ -133,13 +174,17 @@ def delete_donation_route(donation_id):
 		delete_donation(donation_id)
 		return redirect(url_for('feed'))
 
+@app.route('/delete_request/<int:request_id>', methods=['GET'])
+def delete_request_route(request_id):
+	if request.method=='GET':
+		delete_request(request_id)
+		return redirect(url_for('account_reciever'))
 
-
-
-
-
-
-
+@app.route('/request_feed',methods=['GET'])
+def request_feed():
+	if request.method=='GET':
+		donor=query_donors_by_email(login_session['email'])
+		return render_template('requests_feed.html', requests=query_all_requests(), donor=donor)
 
 
 

@@ -17,6 +17,14 @@ def add_donation(name, amount, expiration_date, donor):
 	session.add(donation_object)
 	session.commit()
 
+def add_request(name, amount, reciever):
+	request_object = Request(
+		name= name,
+		amount=amount,
+		reciever=reciever)
+	session.add(request_object)
+	session.commit()
+
 def add_donor(name, email, password, area, address, telephone):
 	donor_object = Donor(
 		name=name,
@@ -43,10 +51,18 @@ def delete_donation(donation_id):
 		donation_id=donation_id).delete()
 	session.commit()
 
+def delete_request(request_id):
+	session.query(Request).filter_by(
+		request_id=request_id).delete()
+	session.commit()
 
 def query_all_donates():
 	donations = session.query(Donation).all()
 	return donations
+
+def query_all_requests():
+	requests = session.query(Request).all()
+	return requests	
 
 def query_all_donors():
 	donors = session.query(Donor).all()
@@ -56,6 +72,11 @@ def query_by_id(donation_id):
     donation = session.query(Donation).filter_by(
         donation_id=donation_id).first()
     return donation
+
+def query_request_by_id(request_id):
+    request = session.query(Request).filter_by(
+        request_id=request_id).first()
+    return request
 
 def query_donors_by_email(email):
 	donor = session.query(Donor).filter_by(email=email).first()
@@ -79,8 +100,17 @@ def query_donations_by_donorid(donor_id):
 	donations = session.query(Donation).filter_by(donor_id=donor_id).all()
 	return donations
 
+def query_requests_by_recieverid(reciever_id):
+	requests = session.query(Request).filter_by(reciever_id=reciever_id).all()
+	return requests
+
 def update_donation(donation_id,expiration_date,amount):
 	donation=session.query(Donation).filter_by(donation_id=donation_id).first()
 	donation.expiration_date=expiration_date
 	donation.amount=amount
+	session.commit()
+
+def update_request(request_id,amount):
+	request=session.query(Request).filter_by(request_id=request_id).first()
+	request.amount=amount
 	session.commit()
