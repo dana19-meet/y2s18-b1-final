@@ -17,7 +17,7 @@
     </div>
         {% for donate in donates %}
         
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; {% if donates.index(donate) % 2 == 0  %} background-color: #96b2dd; {% endif %}">
             <div class="card-body">
 
 
