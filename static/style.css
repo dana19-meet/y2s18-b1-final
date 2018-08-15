@@ -149,7 +149,10 @@ background-image: url('givingback.jpg');
 	background-size: cover;
 	opacity: 0.5;
 }
-
+.home_content{
+	text-align: center;
+	align-content: center;
+}
 #contentud{
 	background-image: url("donations.jpg");
 	background-size: cover;
@@ -162,7 +165,7 @@ background-image: url('givingback.jpg');
 
 }
 .bgrealfeed{
-	background-color: lightblue;
+	background-image:url("question.jpg");
 	background-repeat: repeat-y;
 	position: fixed;
 	top: 0;
@@ -197,4 +200,24 @@ background-image: url('givingback.jpg');
 
 .mybar{
 	position: fixed;	
+}
+
+#headerbig{
+	font-size: 50px;
+}
+
+.card{
+border-style: solid ;
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 0;
+text-align: center;
+align-content: center;
+margin-left: 365px;
+}
+
+
+#listthingy{
+
+font-family: Courier New, Helvetica,Monospace ;
 }
