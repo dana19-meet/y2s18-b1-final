@@ -38,28 +38,61 @@
 
     </div>
 	</div>
-		<h1>Using all the food we made</h1>
-		<br>
-		<h3>1 out of 10 kids go to sleep hungry</h3>
-		
-		<br>
-		<br>
-		<h2>Some Facts About Food Security:</h2>
-		<ol>
-			<li>one</li>
-			<li>two</li>
-		</ol>
-		
 
+	<div class="home_content">
+        <div id="headerbig">
+		<p>   1 out of 5 people go to sleep<br>hungry in the region</p>
+	</div>
+		
+		<br>
+		<br>
+		<div class='whiteback'>
+		<h2>Some Facts About Food Security:</h2>
+		</div>
+		<div id="listthingy" >
+		<ul>
+
+			<p>1.7M Israelis are at risk of hunger</p>
+            <p>47% of families with four+ children experience food insecurity</p>
+            <p>33% of all food produced annually gets wasted</p>
+        </ul>
+    </div>
+	</div>
 
 	<div id="pic1"></div>
     <div id="topbar"></div>
-	   <!-- Add JQuery and Bootstrap JS to the page -->
+	   	   <!-- Add JQuery and Bootstrap JS to the page -->
 	   <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
 	    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
 	    <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
 
 
+
+
+<!-- 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<script>
+$(document).ready(function(){
+var header = $('#pic1');
+
+var backgrounds = new Array(
+    'url("{{url_for("static", filename="poor.jpg")}}")'
+  , 'url("{{url_for("static", filename="homepageimg.jpg")}}")'
+  , 'url("{{url_for("static", filename="girl.jpeg")}}")'
+);
+
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background-image', backgrounds[current]);
+}
+setInterval(nextBackground, 5000);
+
+header.css('background-image', backgrounds[0]);
+});
+</script>
 
 	</body>
 </html>

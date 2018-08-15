@@ -1,4 +1,4 @@
-
+ @font-face { font-family: BebasNeue; src: url({{ url_for('static', filename='BebasNeue.otf'); } 
 .contentfedreciever{
 	background-color: white;
 	align-content: center;
@@ -6,13 +6,15 @@
 	width: 400px;
 	margin-left: 400px;
 	border-radius: 70px;
-	
+
 }
+
 
 
 
 .all_button{
 	background-color:black;
+	color: white;
 	border-radius: 70px;
 }
 
@@ -165,6 +167,7 @@ background-image: url('givingback.jpg');
 .home_content{
 	text-align: center;
 	align-content: center;
+	font-family: BebasNeue;
 }
 #contentud{
 	background-image: url("background.jpg");
