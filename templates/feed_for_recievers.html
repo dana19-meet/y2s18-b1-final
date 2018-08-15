@@ -26,6 +26,8 @@
             <input type="submit" name="submit">
         <h1>my uploaded donations</h1>
         {% for donate in mydonations %}
+    
+        
     <p>
         <a href="{{url_for('donation', donation_id=donate.donation_id)}}">{{donate.name}}</a><br>
         amount: {{donate.amount}}<br>
