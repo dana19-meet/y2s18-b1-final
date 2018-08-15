@@ -20,7 +20,7 @@
             </div>
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
         {%if donor%}
-            <a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+            <a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
             <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
         {%elif reciever%}
             <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
@@ -31,8 +31,7 @@
 </div>
         <div class="middlethingy">
         <h3>Hello {{reciever.reciever_name}}</h3>
-        <a href="{{url_for('logout')}}" <button type="button">Log Out</button> </a>
-        <br>
+
         <h1>Feed</h1>
     </div>
         {% for donate in donates %}

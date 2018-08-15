@@ -18,10 +18,9 @@
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
         <h3>Hello {{reciever.reciever_name}}</h3>
-        <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a> <br>
         <h1>uplode a new request</h1>
         <form method="POST" action="/my_requests">
-            <input type="text" name="request_name" placeholder="description of the food I need">
+            <input type="text" name="request_name" placeholder="what food?">
             <br>
             Amount of dishes:
             <input type="number" name="amount" min="1">
