@@ -9,6 +9,8 @@ import datetime
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
+
+
 # App routing code here
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -68,7 +70,14 @@ def donation(donation_id):
 	return render_template('donation.html', 
 		donation=query_by_id(donation_id))
 
-@app.route('/feed', methods=['GET', 'POST'])
+@app.route('/donation_reciever/<int:donation_id>')
+def reciever_donation(donation_id):
+	donation_1 = query_by_id(donation_id)
+	donor_id = donation_1.donor_id
+	return render_template('donation_reciever.html', 
+		donation=query_by_id(donation_id))
+
+@app.route('/my_donations', methods=['GET', 'POST'])
 def feed():
 	today=datetime.datetime.now().strftime ("%Y-%m-%d")
 	delete_donations_by_exp(today)
@@ -91,7 +100,7 @@ def feed():
 		mydonations=query_donations_by_donorid(donor.donor_id)
 		return render_template('feed_for_recievers.html', mydonations=mydonations, donor=donor)
 
-@app.route('/recieverfeed', methods=['GET'])
+@app.route('/reciever_feed', methods=['GET'])
 def recieverfeed():
 	if request.method=='GET':
 		today=datetime.datetime.now().strftime ("%Y-%m-%d")
@@ -102,17 +111,27 @@ def recieverfeed():
 @app.route('/edit_donation/<int:food_id>', methods=['GET','POST'])
 def edit_donation(food_id):
 	if request.method=='POST':
-		print('posted')
 		exp=datetime.datetime.strptime(request.form['expiration_date'],"%Y-%m-%d").date()
 		update_donation(food_id,exp,int(request.form['amount']))
-		print('updated donation')
 		return redirect(url_for('feed'))
 	if request.method=='GET':
 		food_name = query_by_id(food_id).name
 		return render_template('edit.html', name=food_name,donation_id=food_id)
 
+@app.route('/logout')
+def logout():
+	del login_session['email']
+	if 'donor_name' in login_session.keys(): 
+		del login_session['donor_name']
+	if 'reciever_name' in login_session.keys():
+		del login_session['reciever_name']
+	return redirect(url_for('home'))
 
-
+@app.route('/delete_donation/<int:donation_id>', methods=['GET'])
+def delete_donation_route(donation_id):
+	if request.method=='GET':
+		delete_donation(donation_id)
+		return redirect(url_for('feed'))
 
 
 
