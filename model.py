@@ -27,13 +27,19 @@ class Donor(Base):
 	donation = relationship("Donation", back_populates = "donor")
 
 class Reciever(Base):
-    __tablename__ = "recievers"
-    reciever_id = Column(Integer, primary_key = True)
-    reciever_name = Column(String)
-    email = Column(String)
-    password = Column(String)
-    area = Column(String)
-    telephone = Column(String)
+	__tablename__ = "recievers"
+	reciever_id = Column(Integer, primary_key = True)
+	reciever_name = Column(String)
+	email = Column(String)
+	password = Column(String)
+	area = Column(String)
+	telephone = Column(String)
+	request = relationship("Request", back_populates = "reciever")
 
-    def __repr__(self):
-        return ("Student name: {}, Student year:{}".format(self.name, self.year))
+class Request(Base):
+	__tablename__="requests"
+	request_id=Column(Integer,primary_key=True)
+	reciever_id = Column(Integer, ForeignKey('recievers.reciever_id'))
+	name=Column(String)
+	amount=Column(Integer)
+	reciever = relationship("Reciever", back_populates = "request")

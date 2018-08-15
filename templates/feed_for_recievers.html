@@ -11,10 +11,14 @@
 
         <div class="contentfedreciever">
         <h3>Hello {{donor.name}}</h3>
-        <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a>
-        <h1>upload a new donation</h1>
-        <form method="POST" action="/feed">
-            Dishes' name:
+
+        <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a> <br>
+        <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
+        <a href="{{url_for('recieverfeed')}}" <button type="button" >view all the other donations</button> </a>
+        <h1>uplode a new donation</h1>
+        <h4>if your donation's expiration date passed, your donation will disapear</h4>
+        <form method="POST" action="/my_donations">
+
             <input type="text" name="donation_name" placeholder="dishes' name">
             <br>
             Amount of dishes:

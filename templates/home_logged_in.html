@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+
+	   <meta charset="utf-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+		<title>Food Secure</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+	</head>
+	<body>
+
+	<div class=main_bar>
+		
+		<div id="topbar">
+            <div class="right">
+                <img src="../static/logo.jpeg" class="logo" alt="logo">
+            </div>
+		<a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
+		{%if donor%}
+			<a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+        	<a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
+		{%elif reciever%}
+			<a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+		{%endif%}
+		<a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
+        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
+		<h3>Hello 
+			{%if donor%}
+				{{donor.name}}
+			{%elif reciever%}
+				{{reciever.reciever_name}}
+			{%endif%}
+		</h3>	
+	
+
+    </div>
+	</div>
+		<h1>Using all the food we made</h1>
+		<br>
+		<h3>1 out of 10 kids go to sleep hungry</h3>
+		
+		<br>
+		<br>
+		<h2>Some Facts About Food Security:</h2>
+		<ol>
+			<li>one</li>
+			<li>two</li>
+		</ol>
+		
+
+
+	<div id="pic1"></div>
+    <div id="topbar"></div>
+	   <!-- Add JQuery and Bootstrap JS to the page -->
+	   <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
+	    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+	    <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+
+
+
+	</body>
+</html>
