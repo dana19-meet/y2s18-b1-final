@@ -20,12 +20,13 @@
             </div>
 		<a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
 		{%if donor%}
-			<a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+			<a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
         	<a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
+			<a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
 		{%elif reciever%}
 			<a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+			<a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
 		{%endif%}
-		<a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
 		<h3>Hello 
 			{%if donor%}

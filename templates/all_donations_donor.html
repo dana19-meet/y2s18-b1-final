@@ -22,29 +22,14 @@
                 <img src="../static/logo.jpeg" class="logo" alt="logo">
             </div>
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
-        <a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+        <a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
         <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
                 <h3>Hello {{donor.name}}</h3>
-    </div>
-</div>
-        <h1>uplode a new donation</h1>
-        <h4>if your donation's expiration date passed, your donation will disapear</h4>
-        <form method="POST" action="/my_donations">
 
-            <input type="text" name="donation_name" placeholder="dishes' name">
-            <br>
-            Amount of dishes:
-            <input type="number" name="amount" min="1">
-            <br>
-            expiration date:
-            <input type="date" name="expiration_date">
-            <br>
-            <br>
-            <input type="submit" name="submit">
-        <h1>my uploaded donations</h1>
-        {% for donate in mydonations %}
+        <h1>donations</h1>
+        {% for donate in donations %}
     
 
     <p>

@@ -5,10 +5,24 @@ import os
 # Add functions you need from databases.py to the next line!
 from database import *
 import datetime
+from flask_mail import Mail, Message
+
+
 # Starting the flask app
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
+
+app = Flask(__name__)
+app.secret_key = os.urandom(24)
+
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'foodsecure1@gmail.com'
+app.config['MAIL_PASSWORD'] = r'1234%abcd'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 
 # App routing code here
@@ -54,6 +68,9 @@ def donor():
 			request.form['telephone'])
 		donemail=request.form['email']
 		donor=query_donors_by_email(donemail)
+		msg = Message('Hello', sender = 'foodsecure1@gmail.com', recipients = [request.form['email']])
+		msg.body = "Hello! You have been signed up for foodsecure.com as a donor"
+		mail.send(msg)
 		return redirect(url_for('home'))
 	if request.method=='GET':
 		return render_template('signup_donor.html')
@@ -68,6 +85,9 @@ def reciever():
 			request.form['telephone'])
 		recemail=request.form['email']
 		reciever=query_recievers_by_email(recemail)
+		msg = Message('Hello', sender = 'foodsecure1@gmail.com', recipients = [request.form['email']])
+		msg.body = "Hello! You have been signed up for foodsecure.com as a reciever"
+		mail.send(msg)
 		return redirect(url_for('home'))
 	if request.method=='GET':
 		return render_template('signup_reciever.html')
@@ -87,7 +107,7 @@ def reciever_donation(donation_id):
 		donation=query_by_id(donation_id))
 
 @app.route('/my_donations', methods=['GET', 'POST'])
-def feed():
+def account_donor():
 	today=datetime.datetime.now().strftime ("%Y-%m-%d")
 	delete_donations_by_exp(today)
 	if request.method=='POST':  
@@ -108,6 +128,29 @@ def feed():
 		donor=query_donors_by_email(login_session['email'])
 		mydonations=query_donations_by_donorid(donor.donor_id)
 		return render_template('feed_for_recievers.html', mydonations=mydonations, donor=donor)
+
+@app.route('/donations', methods=['GET', 'POST'])
+def feed():
+	today=datetime.datetime.now().strftime ("%Y-%m-%d")
+	delete_donations_by_exp(today)
+	if request.method=='POST':  
+		exp=datetime.datetime.strptime(request.form['expiration_date'],"%Y-%m-%d").date()
+		donor=query_donors_by_email(login_session['email'])
+		if donor == None:
+			return redirect(url_for('home'))
+		today=datetime.datetime.now().strftime ("%Y-%m-%d")
+		delete_donations_by_exp(today)
+		add_donation(request.form['donation_name'],
+			int(request.form['amount']),
+			exp, donor)
+		mydonations=query_donations_by_donorid(donor.donor_id)
+		return render_template('feed_for_recievers.html', mydonations=mydonations, donor=donor)
+	if request.method=='GET':
+		today=datetime.datetime.now().strftime ("%Y-%m-%d")
+		delete_donations_by_exp(today)
+		donor=query_donors_by_email(login_session['email'])
+		mydonations=query_donations_by_donorid(donor.donor_id)
+		return render_template('all_donations_donor.html', mydonations=mydonations, donor=donor)
 
 @app.route('/my_requests/<int:request_id>', methods=['GET', 'POST'])
 def requests(request_id):
@@ -138,7 +181,8 @@ def recieverfeed():
 		today=datetime.datetime.now().strftime ("%Y-%m-%d")
 		delete_donations_by_exp(today)
 		reciever=query_recievers_by_email(login_session['email'])
-		return render_template('real_feed_recievers.html', donates=query_all_donates(), reciever=reciever)
+		donor=query_donors_by_email(login_session['email'])
+		return render_template('real_feed_recievers.html', donates=query_all_donates(),donor=donor, reciever=reciever)
 
 @app.route('/edit_donation/<int:food_id>', methods=['GET','POST'])
 def edit_donation(food_id):
