@@ -1,4 +1,16 @@
 
+.contentfedreciever{
+	background-color: white;
+	align-content: center;
+	text-align: center;
+	width: 400px;
+	margin-left: 400px;
+	border-radius: 70px;
+	
+}
+
+
+
 .all_button{
 	background-color:black;
 	border-radius: 70px;
@@ -107,19 +119,18 @@ background-image: url('givingback.jpg');
 
 }
 
+
 .chooseareap{
 	width: 100px;
 	text-align: center;
 	margin-left: 550px;
-
-
 }
+
 
 .submitmid{
 	width: 100px;
 	text-align: center;
 	margin-left: 570px;
-
 }
 
 
@@ -132,7 +143,6 @@ background-image: url('givingback.jpg');
 	z-index: -1;
 	background-image: url('vegetables.jpg');
 	background-size: cover;
-
 }
 
 
@@ -157,7 +167,7 @@ background-image: url('givingback.jpg');
 	align-content: center;
 }
 #contentud{
-	background-image: url("donations.jpg");
+	background-image: url("background.jpg");
 	background-size: cover;
 	position: fixed;
 	top: 0;
@@ -165,8 +175,9 @@ background-image: url('givingback.jpg');
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-
 }
+
+
 .bgrealfeed{
 	background-image:url("question.jpg");
 	background-repeat: repeat-y;
@@ -236,7 +247,7 @@ margin-left: 365px;
 	left: 50%;
 	transform: translateX(-50%);
 	border-radius: 25px;
-
+	font-size: 15pt;
 }
 
 #listthingy ul p

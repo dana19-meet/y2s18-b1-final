@@ -7,10 +7,14 @@
 
     <body>
         <div id="contentud"></div>
+        
+
+        <div class="contentfedreciever">
         <h3>Hello {{donor.name}}</h3>
         <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a>
-        <h1>uplode a new donation</h1>
+        <h1>upload a new donation</h1>
         <form method="POST" action="/feed">
+            Dishes' name:
             <input type="text" name="donation_name" placeholder="dishes' name">
             <br>
             Amount of dishes:
@@ -24,7 +28,7 @@
         <h1>my uploaded donations</h1>
         {% for donate in mydonations %}
     
-        
+
     <p>
         <a href="{{url_for('donation', donation_id=donate.donation_id)}}">{{donate.name}}</a><br>
         amount: {{donate.amount}}<br>
@@ -32,7 +36,7 @@
         <!-- figure out the names of the variables -->
     </p>
     {% endfor %}
-
+    </div>
 
     </body>
 </html>
