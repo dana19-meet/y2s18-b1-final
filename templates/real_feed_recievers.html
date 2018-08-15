@@ -11,7 +11,8 @@
     <div class="container">
         <div class="middlethingy">
         <h3>Hello {{reciever.reciever_name}}</h3>
-
+        <a href="{{url_for('logout')}}" <button type="button">Log Out</button> </a>
+        <br>
         <h1>Feed</h1>
     </div>
         {% for donate in donates %}
@@ -21,7 +22,7 @@
 
 
                 <p class="card-text">
-                    <a href="{{url_for('donation', donation_id=donate.donation_id)}}">
+                    <a href="{{url_for('reciever_donation', donation_id=donate.donation_id)}}">
                     {{donate.name}}</a><br>
                     amount: {{donate.amount}}<br>
                     Expiration Date: {{donate.expiration_date}}<br><br>
