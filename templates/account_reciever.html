@@ -5,10 +5,13 @@
         <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     </head>
 
     <body>
-        <div id="contentud"></div>
+
+
+        <div id="contentud">
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
         {%if donor%}
             <a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
@@ -17,25 +20,34 @@
         {%endif%}
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
+
+        <div class='bgaccrec'>
         <h3>Hello {{reciever.reciever_name}}</h3>
         <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a> <br>
-        <h1>uplode a new request</h1>
+        <h1>upload a new request</h1>
         <form method="POST" action="/my_requests">
+
+            <div class='middyplz'>
+            description:
             <input type="text" name="request_name" placeholder="description of the food I need">
             <br>
+        </div>
             Amount of dishes:
             <input type="number" name="amount" min="1">
             <br>
             <br>
             <input type="submit" name="submit">
+        <div class="myuploadedrequest">
         <h1>my uploaded requests</h1>
         {% for request in myrequests %}
     <p>
         <a href="{{url_for('requests', request_id=request.request_id)}}">{{request.name}}</a><br>
         amount: {{request.amount}}<br>
-    </p>
+    </p></div>
     {% endfor %}
-
+    </div>
+</div>
+   
 
     </body>
 </html>

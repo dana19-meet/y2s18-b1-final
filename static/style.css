@@ -200,10 +200,8 @@ background-image: url('givingback.jpg');
 	background-color: white;
 }
 
-.middlethingy{
-	text-align: center;
-	font-style: italic;
-}
+
+
 
 .logo{
 	width: 80px;
@@ -277,6 +275,73 @@ margin-left: 365px;
 }
 
 
+
+
 .donreci{
 margin-bottom: 5px;
+}
+
+
+.bgaccrec{
+	background-color: white;
+	text-align: center;
+	width:400px;
+	margin-left: ;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 25px;
+
+}
+
+.middyplz{
+	margin-left: 47px;
+	margin-top: 5px;
+margin-bottom: 5px;
+}
+
+
+.myuploadedrequest{
+	margin-top: 5px;
+margin-bottom: 50px;
+}
+
+
+
+
+.middlethingy{
+	text-align: center;
+	font-style: italic;
+
+}
+
+
+.randomkmn{
+	text-align: center;
+	color: white;
+
+}
+
+.almostdonewithdiv{
+	background-image: url('background.jpg');
+		background-size: cover;
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	color: white;
+	text-align: center;
+}
+
+#toomuch{
+	margin-top: 100px;
+}
+
+.fonts{
+	color:white;
+	font-size: 24px;
+	 font-family: "Lucida Console", monospace;
+	 margin-top: 100px;
 }
