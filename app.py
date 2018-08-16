@@ -173,7 +173,14 @@ def account_reciever():
 		reciever=query_recievers_by_email(login_session['email'])
 		myrequests=query_requests_by_recieverid(reciever.reciever_id)
 		return render_template('account_reciever.html', reciever=reciever, myrequests=myrequests)
-
+	if request.method=='POST':  
+		reciever=query_recievers_by_email(login_session['email'])
+		if reciever == None:
+			return redirect(url_for('home'))
+		add_request(request.form['request_name'],
+			int(request.form['amount']), reciever)
+		myrequests=query_requests_by_recieverid(reciever.reciever_id)
+		return render_template('account_reciever.html', myrequests=myrequests, reciever=reciever)
 
 @app.route('/reciever_feed', methods=['GET'])
 def recieverfeed():

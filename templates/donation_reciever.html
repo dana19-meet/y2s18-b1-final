@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>donation </title>
+		<title>donation </title>            
+		<meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 	</head>
 
 	<body>
-		<div id=donantion_recieverbg>
+
+		<div id="topbar">
+            <div class="right">
+                <img src="../static/logo.PNG" class="logo" alt="logo">
+            </div>
+        <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
+            <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+            <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
+        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
 		<h1>Name: {{donation.name}}</h1> <br>
+
+    </div>
+</div>
+		<div id=donantion_recieverbg>
+
 		<div class='donreci'>
 		amount of dishes: {{donation.amount}}<br>
 		</div>

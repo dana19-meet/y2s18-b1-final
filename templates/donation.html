@@ -2,10 +2,33 @@
 <html>
 	<head>
 		<title>donation </title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 	</head>
 
 	<body>
+		<div id="topbar">
+            <div class="right">
+                <img src="../static/logo.PNG" class="logo" alt="logo">
+            </div>
+        <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
+
+		{% if request.reciever.email==login_session['email']%}
+            <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+            <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
+        {%else%}
+            <a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+            <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
+            <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
+        {%endif%}
+
+        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
+
+
+    </div>
+</div>
 		<h1>Name: {{donation.name}}</h1> <br>
 		amount of dishes: {{donation.amount}}<br>
 		Expiration Date: {{donation.expiration_date}}<br>
