@@ -97,7 +97,7 @@ def donation(donation_id):
 	donation_1 = query_by_id(donation_id)
 	donor_id = donation_1.donor_id
 	return render_template('donation.html', 
-		donation=query_by_id(donation_id))
+		donation=query_by_id(donation_id), login_session=login_session)
 
 @app.route('/donation_reciever/<int:donation_id>')
 def reciever_donation(donation_id):
@@ -152,8 +152,9 @@ def feed():
 		mydonations=query_donations_by_donorid(donor.donor_id)
 		return render_template('all_donations_donor.html', mydonations=mydonations, donor=donor)
 
+@app.route('/my_requests', methods = ['POST', 'GET'])
 @app.route('/my_requests/<int:request_id>', methods=['GET', 'POST'])
-def requests(request_id):
+def requests(request_id = None):
 	if request.method=='POST':  
 		reciever=query_recievers_by_email(login_session['email'])
 		if reciever == None:
@@ -173,7 +174,14 @@ def account_reciever():
 		reciever=query_recievers_by_email(login_session['email'])
 		myrequests=query_requests_by_recieverid(reciever.reciever_id)
 		return render_template('account_reciever.html', reciever=reciever, myrequests=myrequests)
-
+	if request.method=='POST':  
+		reciever=query_recievers_by_email(login_session['email'])
+		if reciever == None:
+			return redirect(url_for('home'))
+		add_request(request.form['request_name'],
+			int(request.form['amount']), reciever)
+		myrequests=query_requests_by_recieverid(reciever.reciever_id)
+		return render_template('account_reciever.html', myrequests=myrequests, reciever=reciever)
 
 @app.route('/reciever_feed', methods=['GET'])
 def recieverfeed():
@@ -188,8 +196,10 @@ def recieverfeed():
 def edit_donation(food_id):
 	if request.method=='POST':
 		exp=datetime.datetime.strptime(request.form['expiration_date'],"%Y-%m-%d").date()
-		update_donation(food_id,exp,int(request.form['amount']))
-		return redirect(url_for('feed'))
+		update_donation(food_id,exp,int(request.form['amount']))		
+		donor=query_donors_by_email(login_session['email'])
+		mydonations=query_donations_by_donorid(donor.donor_id)
+		return render_template('feed_for_recievers.html', mydonations=mydonations, donor=donor)
 	if request.method=='GET':
 		food_name = query_by_id(food_id).name
 		return render_template('edit.html', name=food_name,donation_id=food_id)
@@ -216,7 +226,7 @@ def logout():
 def delete_donation_route(donation_id):
 	if request.method=='GET':
 		delete_donation(donation_id)
-		return redirect(url_for('feed'))
+		return redirect(url_for('account_donor'))
 
 @app.route('/delete_request/<int:request_id>', methods=['GET'])
 def delete_request_route(request_id):

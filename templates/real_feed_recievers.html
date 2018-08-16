@@ -16,24 +16,28 @@
         
                 <div id="topbar">
             <div class="right">
-                <img src="../static/logo.jpeg" class="logo" alt="logo">
+
+                <img src="../static/logo.PNG" class="logo" alt="logo">
             </div>
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
         {%if donor%}
-            <a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
+            <a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
             <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
         {%elif reciever%}
             <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
         {%endif%}
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
-        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
+        <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>        
+        {%if donor%}
+        <h3>Hello {{donor.name}}</h3>
+        {%elif reciever%}
+        <h3>Hello {{reciever.reciever_name}}</h3>
+        {%endif%}
     </div>
 </div>
         <div class="middlethingy">
-        <h3>Hello {{reciever.reciever_name}}</h3>
-        <a href="{{url_for('logout')}}" <button type="button">Log Out</button> </a>
-        <br>
-        <h1>Feed</h1>
+
+        <h1>Donations Feed</h1>
     </div>
         {% for donate in donates %}
         
@@ -43,7 +47,11 @@
         <div class="card" style="width: 18rem; {% if donates.index(donate) % 2 == 0  %} background-color: #96b2dd; {% endif %}">
             <div class="card-body">
                 <p class="card-text">
+                    {%if donor%}
+                        <a href="{{url_for('donation', donation_id=donate.donation_id)}}">
+                    {%elif reciever%}
                     <a href="{{url_for('reciever_donation', donation_id=donate.donation_id)}}">
+                    {%endif%}
                     {{donate.name}}</a><br>
                     amount: {{donate.amount}}<br>
                     Expiration Date: {{donate.expiration_date}}<br><br>

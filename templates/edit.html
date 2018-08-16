@@ -2,6 +2,10 @@
     <html>
         <head>
             <title> edit donation</title>
+            <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
         </head>
 
@@ -22,7 +26,7 @@
         	<div class="almostdonewithdiv">
 
             <div class="fonts">
-            <form method="POST" action="/edit_donation/{{donation_id}}">
+            <form action="/edit_donation/{{donation_id}}" method="post" >
                 <!-- <input type="text" name="donation_name" placeholder="dishes' name"> -->
                 Description:
                 {{name}}

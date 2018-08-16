@@ -14,18 +14,18 @@
         <div id="contentud"></div>
         
 
-        <div class="contentfedreciever">
-
+<!--         <div class="contentfedreciever">
+ -->
         <div id="topbar">
             <div class="right">
-                <img src="../static/logo.jpeg" class="logo" alt="logo">
+                <img src="../static/logo.PNG" class="logo" alt="logo">
             </div>
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
         <a href = "{{url_for('account_donor')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
         <a href="{{url_for('request_feed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Requests</button></a>
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
-                <h3>Hello {{donor.name}}</h3>
+                <h3 id="white">Hello {{donor.name}}</h3>
     </div>
 </div>
         <div class="randomkmn"> 

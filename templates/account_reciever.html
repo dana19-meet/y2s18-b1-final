@@ -13,23 +13,20 @@
 
         <div id="contentud">
         <a href="{{url_for('home_sign_in')}}"><button class="btn btn-primary main_bar all_button"  type="button" >Home</button></a>
-        {%if donor%}
-            <a href = "{{url_for('feed')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
-        {%elif reciever%}
-            <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
-        {%endif%}
+        <a href = "{{url_for('account_reciever')}}"><button class="btn btn-primary main_bar all_button"  type="button" >My Account</button></a>
         <a href="{{url_for('recieverfeed')}}"> <button class="btn btn-primary main_bar all_button"  type="button" >View All Donations</button></a>
         <a href="{{url_for('logout')}}"> <button type="button" class="btn btn-primary main_bar all_button">Log Out</button> </a> <br>
 
         <div class='bgaccrec'>
         <h3>Hello {{reciever.reciever_name}}</h3>
-        <a href="{{url_for('logout')}}" <button type="button" >Log Out</button> </a> <br>
-        <h1>upload a new request</h1>
-        <form method="POST" action="/my_requests">
+
 
             <div class='middyplz'>
-            description:
-            <input type="text" name="request_name" placeholder="description of the food I need">
+
+
+        <h1>uplode a new request</h1>
+        <form method="POST" action="/account_reciever">
+            <input type="text" name="request_name" placeholder="what food?">
             <br>
         </div>
             Amount of dishes:

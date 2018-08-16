@@ -9,8 +9,12 @@
 
 }
 
-
-
+#center{
+	text-align: center;
+}
+#white{
+	color: white;
+}
 
 .all_button{
 	background-color:black;
@@ -344,4 +348,8 @@ margin-bottom: 50px;
 	font-size: 24px;
 	 font-family: "Lucida Console", monospace;
 	 margin-top: 100px;
+}
+
+.donreci{
+	text-align: center;
 }
